@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TROGENZ | Streetwear</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#090909;color:#f5f5f5;font-family:'Space Grotesk',sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+header{height:75px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid #292929;position:sticky;top:0;background:#090909ee;z-index:10}
+.logo{font-size:29px;font-weight:700;letter-spacing:-2px}
+.logo span,.lime{color:#d8ff3e}
+nav{display:flex;gap:25px;font-size:12px;text-transform:uppercase}
+nav a:hover{color:#d8ff3e}
+.cart{background:#d8ff3e;color:#090909;padding:12px 17px;border:0;font-weight:bold}
+.hero{min-height:650px;padding:90px 8%;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:radial-gradient(circle at 75% 50%,#252525,#090909 65%);overflow:hidden}
+.tagline{font-size:11px;color:#d8ff3e;letter-spacing:4px}
+h1{font-size:clamp(65px,10vw,130px);line-height:.83;letter-spacing:-9px;margin:30px 0}
+h1 span{color:#d8ff3e}
+.hero p{color:#aaa;max-width:400px;line-height:1.8;font-size:14px}
+.btn{display:inline-block;padding:16px 24px;background:#d8ff3e;color:#090909;font-size:11px;font-weight:bold;letter-spacing:2px;margin-top:30px;border:0}
+.hero-image{height:440px;display:grid;place-items:center;position:relative}
+.hero-image:before{content:"";width:350px;height:350px;border:1px solid #555;border-radius:50%;position:absolute}
+.shirt{width:245px;height:290px;background:linear-gradient(135deg,#444,#111);clip-path:polygon(25% 0,40% 0,44% 8%,56% 8%,60% 0,75% 0,100% 20%,85% 43%,74% 35%,74% 100%,26% 100%,26% 35%,15% 43%,0 20%);display:grid;place-items:center;filter:drop-shadow(10px 20px 20px #000)}
+.shirt b{font-size:36px;color:#d8ff3e;transform:rotate(-8deg)}
+.ticker{padding:20px;text-align:center;border-top:1px solid #333;border-bottom:1px solid #333;color:#d8ff3e;letter-spacing:4px;font-size:12px}
+section{padding:85px 7%}
+.heading{margin-bottom:35px}
+.heading small{color:#d8ff3e;letter-spacing:3px}
+.heading h2{font-size:clamp(38px,6vw,65px);letter-spacing:-4px;margin-top:12px}
+.heading p{color:#888;font-size:13px;margin-top:12px}
+.filters{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap}
+.filters button{padding:10px 17px;background:none;border:1px solid #555;color:white;font-size:11px}
+.filters button.active,.filters button:hover{background:#d8ff3e;color:#090909;border-color:#d8ff3e}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.product-image{height:350px;background:#191919;display:grid;place-items:center;position:relative;overflow:hidden}
+.product-image.white{background:#d8d8d2}
+.product-image.grey{background:#353535}
+.product-image.green{background:#27301e}
+.product-image.white .shirt{background:linear-gradient(135deg,#fff,#aaa)}
+.product-image.white .shirt b{color:#111}
+.product-image.green .shirt{background:linear-gradient(135deg,#45533a,#10190e)}
+.product-image.grey .shirt{background:linear-gradient(135deg,#777,#222)}
+.product-image .shirt{transition:.3s}
+.product:hover .shirt{transform:scale(1.08) rotate(-3deg)}
+.label{position:absolute;top:15px;left:15px;background:#d8ff3e;color:#090909;padding:7px 10px;font-size:10px;font-weight:bold}
+.details{display:flex;justify-content:space-between;gap:10px;padding:17px 0}
+.details h3{font-size:12px}
+.details p{font-size:11px;color:#888;margin-top:7px}
+.price{font-size:13px;font-weight:bold}
+.add{width:100%;padding:14px;background:transparent;border:1px solid #555;color:white;font-size:11px;letter-spacing:2px}
+.add:hover{background:#d8ff3e;color:#090909;border-color:#d8ff3e}
+.story{background:#111;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.story-art{height:380px;background:linear-gradient(140deg,#292929,#111);display:grid;place-items:center}
+.story-art strong{font-size:75px;color:#d8ff3e;letter-spacing:-7px}
+.story h2{font-size:55px;line-height:.95;letter-spacing:-4px;margin:20px 0}
+.story p{color:#aaa;font-size:14px;line-height:1.9}
+.manifesto{text-align:center}
+.manifesto h2{font-size:clamp(35px,7vw,75px);line-height:1;letter-spacing:-5px;margin:25px 0}
+.newsletter{background:#d8ff3e;color:#090909;padding:60px 7%;display:flex;justify-content:space-between;gap:25px;align-items:center}
+.newsletter h2{font-size:35px}
+.newsletter p{font-size:12px;margin-top:8px}
+.newsletter form{display:flex;border-bottom:1px solid #111;max-width:400px;width:100%}
+.newsletter input{background:none;border:0;outline:0;padding:15px;flex:1;min-width:0}
+.newsletter button{background:#090909;color:white;border:0;padding:0 15px}
+footer{padding:45px 7%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#888;font-size:11px}
+footer strong{font-size:25px;color:white}
+.drawer{position:fixed;inset:0;background:#000a;z-index:20;display:none}
+.drawer.open{display:block}
+.panel{position:absolute;right:0;top:0;height:100%;width:min(400px,100%);background:#111;padding:25px;display:flex;flex-direction:column}
+.panel-head{display:flex;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid #444}
+.panel-head button{background:none;color:white;border:0;font-size:25px}
+.items{flex:1;overflow:auto}
+.item{padding:18px 0;border-bottom:1px solid #333;display:flex;justify-content:space-between;font-size:12px}
+.remove{display:block;background:none;color:#d8ff3e;border:0;margin-top:8px;font-size:10px}
+.total{padding:20px 0;display:flex;justify-content:space-between;font-weight:bold}
+.checkout{background:#d8ff3e;border:0;padding:16px;font-weight:bold}
+@media(max-width:750px){
+nav{display:none}
+.hero{grid-template-columns:1fr;padding:75px 6% 30px}
+.hero-image{height:330px}
+.hero-image:before{width:270px;height:270px}
+.products{grid-template-columns:repeat(2,1fr);gap:12px}
+.product-image{height:250px}
+.product-image .shirt{transform:scale(.7)}
+.product:hover .shirt{transform:scale(.75)}
+.story{grid-template-columns:1fr;gap:30px}
+.story-art{height:270px}
+.story h2{font-size:45px}
+.newsletter{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:430px){
+h1{font-size:75px;letter-spacing:-6px}
+section{padding:65px 5%}
+.product-image{height:205px}
+.product-image .shirt{transform:scale(.58)}
+.details{display:block}
+.price{display:block;margin-top:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<a class="logo" href="#">TROGENZ<span>.</span></a>
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#story">About</a>
+<a href="#contact">Contact</a>
+</nav>
+<button class="cart" onclick="openCart()">BAG (<span id="count">0</span>)</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div>
+<div class="tagline">INDEPENDENT STREETWEAR · 2026</div>
+<h1>WEAR<br>YOUR<br><span>EDGE.</span></h1>
+<p>Not made to blend in. Discover Trogenz streetwear — clean designs, bold details and everyday comfort.</p>
+<a class="btn" href="#shop">SHOP COLLECTION ↗</a>
+</div>
+<div class="hero-image">
+<div class="shirt"><b>TZ.</b></div>
+</div>
+</section>
+
+<div class="ticker">TROGENZ® — BUILT DIFFERENT — YOUR OWN LANE — TROGENZ®</div>
+
+<section id="shop">
+<div class="heading">
+<small>DROP 001 / 2026</small>
+<h2>THE COLLECTION.</h2>
+<p>Choose your style. Make it yours.</p>
+</div>
+
+<div class="filters">
+<button class="active" onclick="filterProducts('all',this)">ALL</button>
+<button onclick="filterProducts('oversized',this)">OVERSIZED</button>
+<button onclick="filterProducts('classic',this)">CLASSIC</button>
+</div>
+
+<div class="products">
+
+<article class="product" data-type="oversized">
+<div class="product-image">
+<span class="label">BESTSELLER</span>
+<div class="shirt"><b>TZ.</b></div>
+</div>
+<div class="details"><div><h3>CORE LOGO TEE — BLACK</h3><p>Heavyweight · Oversized</p></div><span class="price">₹1,299</span></div>
+<button class="add" onclick="add('Core Logo Tee - Black',1299)">ADD TO BAG +</button>
+</article>
+
+<article class="product" data-type="oversized">
+<div class="product-image white">
+<span class="label">NEW</span>
+<div class="shirt"><b>TZ.</b></div>
+</div>
+<div class="details"><div><h3>CORE LOGO TEE — WHITE</h3><p>Heavyweight · Oversized</p></div><span class="price">₹1,299</span></div>
+<button class="add" onclick="add('Core Logo Tee - White',1299)">ADD TO BAG +</button>
+</article>
+
+<article class="product" data-type="classic">
+<div class="product-image grey">
+<div class="shirt"><b>T.</b></div>
+</div>
+<div class="details"><div><h3>MINIMAL MARK — GREY</h3><p>Soft cotton · Classic</p></div><span class="price">₹999</span></div>
+<button class="add" onclick="add('Minimal Mark - Grey',999)">ADD TO BAG +</button>
+</article>
+
+<article class="product" data-type="oversized">
+<div class="product-image green">
+<div class="shirt"><b>TZ.</b></div>
+</div>
+<div class="details"><div><h3>AFTER HOURS — OLIVE</h3><p>Heavyweight · Oversized</p></div><span class="price">₹1,399</span></div>
+<button class="add" onclick="add('After Hours - Olive',1399)">ADD TO BAG +</button>
+</article>
+
+<article class="product" data-type="classic">
+<div class="product-image white">
+<div class="shirt"><b style="font-size:24px">TROGENZ</b></div>
+</div>
+<div class="details"><div><h3>WORDMARK — BONE</h3><p>Soft cotton · Classic</p></div><span class="price">₹1,099</span></div>
+<button class="add" onclick="add('Wordmark - Bone',1099)">ADD TO BAG +</button>
+</article>
+
+<article class="product" data-type="oversized">
+<div class="product-image">
+<span class="label">LIMITED</span>
+<div class="shirt"><b style="font-size:25px">NO.001</b></div>
+</div>
+<div class="details"><div><h3>DROP 001 — CHARCOAL</h3><p>Heavyweight · Oversized</p></div><span class="price">₹1,499</span></div>
+<button class="add" onclick="add('Drop 001 - Charcoal',1499)">ADD TO BAG +</button>
+</article>
+
+</div>
+</section>
+
+<section class="story" id="story">
+<div class="story-art"><strong>TZ.</strong></div>
+<div>
+<div class="tagline">THE TROGENZ MINDSET</div>
+<h2>MADE FOR<br>YOUR OWN<br>LANE.</h2>
+<p>TROGENZ is about showing up as yourself. We keep our designs focused, details intentional and attitude unmistakable. This is the beginning. This is Drop 001.</p>
+<a class="btn" href="#shop">EXPLORE THE DROP ↗</a>
+</div>
+</section>
+
+<section class="manifesto">
+<div class="tagline">NO UNIFORM RULES</div>
+<h2>DON'T FOLLOW THE FIT.<br><span class="lime">MAKE IT YOURS.</span></h2>
+<p style="color:#888;letter-spacing:2px;font-size:11px">TROGENZ® — INDEPENDENT BY DESIGN</p>
+</section>
+
+<div class="newsletter" id="contact">
+<div><h2>GET IN THE LOOP.</h2><p>New drops. First access. No noise.</p></div>
+<form onsubmit="event.preventDefault();alert('Thanks for your interest in Trogenz!');">
+<input type="email" placeholder="Your email address" required>
+<button type="submit">JOIN ↗</button>
+</form>
+</div>
+</main>
+
+<footer>
+<strong>TROGENZ.</strong>
+<span>© 2026 TROGENZ. ALL RIGHTS RESERVED.</span>
+<span>STREETWEAR · INDEPENDENT BY DESIGN</span>
+</footer>
+
+<div class="drawer" id="drawer" onclick="if(event.target===this)closeCart()">
+<div class="panel">
+<div class="panel-head"><h2>YOUR BAG</h2><button onclick="closeCart()">×</button></div>
+<div class="items" id="items">Your bag is empty.</div>
+<div class="total"><span>SUBTOTAL</span><span id="total">₹0</span></div>
+<button class="checkout" onclick="checkout()">CONTINUE TO ORDER ↗</button>
+</div>
+</div>
+
+<script>
+let cart=[];
+function add(name,price){
+let p=cart.find(x=>x.name===name);
+if(p)p.qty++;
+else cart.push({name,price,qty:1});
+render();
+openCart();
+}
+function render(){
+document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0);
+let total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+document.getElementById('total').textContent='₹'+total.toLocaleString('en-IN');
+document.getElementById('items').innerHTML=cart.length?cart.map((x,i)=>`
+<div class="item">
+<div>${x.name}<br><small>₹${x.price} × ${x.qty}</small></div>
+<div>₹${x.price*x.qty}<button class="remove" onclick="removeItem(${i})">REMOVE</button></div>
+</div>`).join(''):'<p style="padding:30px 0;color:#888">Your bag is empty.</p>';
+}
+function removeItem(i){cart.splice(i,1);render()}
+function openCart(){document.getElementById('drawer').classList.add('open')}
+function closeCart(){document.getElementById('drawer').classList.remove('open')}
+function filterProducts(type,button){
+document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+button.classList.add('active');
+document.querySelectorAll('.product').forEach(p=>{
+p.style.display=type==='all'||p.dataset.type===type?'':'none';
+});
+}
+function checkout(){
+if(!cart.length){alert('Your bag is empty!');return}
+let order=cart.map(x=>x.name+' × '+x.qty+' = ₹'+x.price*x.qty).join('\n');
+let total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+alert('ORDER SUMMARY\n\n'+order+'\n\nTOTAL: ₹'+total+'\n\nConnect a payment or WhatsApp checkout service to accept real orders.');
+}
+</script>
+</body>
+</html>
